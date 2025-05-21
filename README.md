@@ -2,7 +2,7 @@
 Supplementary data - Replication coordination marks the domestication of large extrachromosomal replicons in bacteria
 
 
-# Supplementary Data 2
+# Supplementary Data
 
 🔗 [Accéder aux supplementary materials ](https://molamber.github.io/ERs-distribution-browser/)
 
