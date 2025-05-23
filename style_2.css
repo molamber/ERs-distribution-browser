@@ -5,6 +5,11 @@ body {
     background-color: #f9f9f9;
 }
 
+html {
+  scroll-behavior: smooth;
+  /*Adds smooth scrolling instead of snapping to element*/
+}
+
 /* HERO SECTION */
 .hero {
     position: relative;
@@ -53,6 +58,8 @@ body {
 }
 
 /* NAVIGATION */
+
+
 .main-nav {
     display: flex;
     justify-content: center;
@@ -72,6 +79,14 @@ body {
 .main-nav a:hover {
     background-color: #f0f0f0;
 }
+
+
+.main-nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #F57C40;
+    color: #F57C40;
+}
+
 
 .tab-content {
     margin-top: 30px;
@@ -102,3 +117,8 @@ iframe {
     border: 1px solid #ccc;
     border-radius: 8px;
 }
+
+
+
+
+
