@@ -29,11 +29,10 @@
         <a href="#" onclick="showTab('main')">Home</a>
         <a href="#" onclick="showTab('dataset')">Supplementary Data 2</a>
         <a href="#" onclick="showTab('data2')">Supplementary Data 3</a>
-        <a href="#" onclick="showTab('data3')">Supplementary Data 3x</a>
+        <a href="#" onclick="showTab('data8')">Supplementary Data 8</a>
         <a href="#" onclick="showTab('data4')">Supplementary Data 4</a>
-        <a href="#" onclick="showTab('data5')">Supplementary Data 5</a>
         <a href="#" onclick="showTab('data9')">Supplementary Data 9</a>
-		<a href="#" onclick="showTab('data10')">Supplementary Data 10</a>
+	<a href="#" onclick="showTab('data10')">Supplementary Data 10</a>
     </nav>
 
     <main class="content" id="content-area">
@@ -11994,35 +11993,71 @@ normality or unimodality (Kitchenham, 2015; Węglarczyk, 2018).
 </body></html>
         </div>
 
-        <div id="data3" class="tab-content" style="display:none;">
-                <h2>Influence of different measures of size and GC content on chromosome and ER clustering</h2>
+        <div id="data8" class="tab-content" style="display:none;">
+<title>Supplementary Data 8 | Absolute vs. chromosome-normalized metrics for ER plotting</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    max-width: 1000px;
+}
+</style>
+</head>
+<body>
 
-                <p><b>Supplementary Data 3</b> contains a collection of six-panel scatter plot figures for all bacterial phyla represented in the dataset with at least 100 extrachromosomal replicons (ERs). An additional figure includes replicons from all other phyla aggregated into a single panel for comparison.</p>
+<h1>Supplementary Data 8 | Absolute vs. chromosome-normalized metrics for ER plotting</h1>
 
-                <p>Each figure displays <b>all replicons from the given phylum</b>, including both chromosomes and ERs. Replicons are plotted using different combinations of size and GC content measures to explore their distribution patterns in two-dimensional space.</p>
+<p>
+To compare extrachromosomal replicons (ERs) across diverse taxa, we evaluated how absolute
+and chromosome-relative metrics influence the visualization and interpretation of ER diversity.
+</p>
 
-                <p>Each figure is organized in a consistent <b>2 × 3 grid layout</b>, where:</p>
-                <p><b>Columns</b> represent three alternative measures of <b>replicon size</b>:<br>
-                – absolute size (bp)<br>
-                – % genome (%) (size relative to total genome size, %gen)<br>
-                – % chromosome (%) (size relative to chromosome size, %chr)</p>
+<p>
+We considered two chromosome-relative measures: <b>ΔGC</b>, defined as the difference between
+the GC content of an ER and that of its chromosome (ΔGC = GC<sub>ER</sub> − GC<sub>chr</sub>),
+and <b>%chr</b>, defined as the size of the ER expressed as a percentage of its chromosome
+(100 × ER size / chromosome size).
+</p>
 
-                <p><b>Rows</b> represent two measures of <b>GC content</b>:<br>
-                – GC content (%)<br>
-                – ΔGC (%) (difference between GC content of a replicon and GC content of the chromosome)</p>
+<p>
+GC content exhibits a strong and consistent host-linked signal across phyla, supporting the
+use of ΔGC as a biologically meaningful normalization. In contrast, %chr does not show a
+universal or stable relationship with chromosome size, but is included for methodological
+completeness.
+</p>
 
-                <h3>Phyla with at least 100 ERs</h3>
-                <ul>
-                    <li>Actinomycetota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Actinomycetota.html" target="_blank">view plot</a></li>
-                    <li>Bacillota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Bacillota.html" target="_blank">view plot</a></li>
-                    <li>Bacteroidota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Bacteroidota.html" target="_blank">view plot</a></li>
-                    <li>Campylobacterota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Campylobacterota.html" target="_blank">view plot</a></li>
-                    <li>Cyanobacteriota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Cyanobacteriota.html" target="_blank">view plot</a></li>
-                    <li>Deinococcota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Deinococcota.html" target="_blank">view plot</a></li>
-                    <li>Pseudomonadota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Pseudomonadota.html" target="_blank">view plot</a></li>
-                    <li>Spirochaetota: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Spirochaetota.html" target="_blank">view plot</a></li>
-                    <li>Other Phyla Aggregated: <a href="Plots_Supplementary_Data_3/chr_and_ER_plot_diff_measures_phylum_Other_phyla_aggregated.html" target="_blank">view plot</a></li>
-                </ul>
+<p>
+We generated four comparative two-dimensional plots using all ERs:
+</p>
+
+<ol>
+<li>Absolute GC (%) vs. absolute size (bp)</li>
+<li>ΔGC vs. absolute size (bp)</li>
+<li>Absolute GC (%) vs. %chr</li>
+<li>ΔGC vs. %chr</li>
+</ol>
+
+<p>
+Two complementary visualization modes are provided. In the first, chromosomes are plotted
+together with ERs. In the second, only ERs are shown, with axes scaled to ER ranges.
+</p>
+
+<h2>Interactive visualizations</h2>
+
+<ul>
+<li><a href="supplementary_data_8_plots/replicon_metrics_4way_norm_all.html">Chromosomes + ERs, linear scale</a></li>
+<li><a href="supplementary_data_8_plots/replicon_metrics_4way_log10_all.html">Chromosomes + ERs, log10 scale</a></li>
+<li><a href="supplementary_data_8_plots/replicon_metrics_4way_norm_ERonly.html">ER-only, linear scale</a></li>
+<li><a href="supplementary_data_8_plots/replicon_metrics_4way_log10_ERonly.html">ER-only, log10 scale</a></li>
+</ul>
+
+<p>
+Together, these visualizations allow direct assessment of how absolute versus chromosome-normalized
+metrics shape the apparent structure of ER diversity in feature space.
+</p>
+
+</body>
+</html>
         </div>
 
         <div id="data4" class="tab-content" style="display:none;">
