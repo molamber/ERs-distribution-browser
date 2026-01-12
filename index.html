@@ -12152,7 +12152,7 @@ offer a deeper view of replicon diversity and evolutionary patterns across bacte
 	<div id="dataTree" class="tab-content" style="display:none;">
             
 
-<title>Absolute vs. chromosome-normalized metrics for ER plotting</title>
+<title>ER distribution on a reference tree of bacteria</title>
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -12163,47 +12163,21 @@ body {
 </head>
 <body>
 
-<h1>Absolute vs. chromosome-normalized metrics for extrachromosomal replicons plotting</h1>
+<h1>ER distribution on a reference tree of bacteria</h1>
 
 <p>
-To compare ERs across diverse taxa, we evaluated how absolute
-and chromosome-relative metrics influence the visualization and interpretation of ER diversity.
+Genera are placed on a schematic taxonomy following the NCBITaxa classification, and only genera represented by ≥10 complete genomes in our dataset were included. For each genus, three complementary measures are shown.
 </p>
 
 <p>
-We considered two chromosome-relative measures: <b>ΔGC</b>, defined as the difference between
-the GC content of an ER and that of its chromosome (ΔGC = GC<sub>ER</sub> − GC<sub>chr</sub>),
-and <b>%chr</b>, defined as the size of the ER expressed as a percentage of its chromosome
-(100 × ER size / chromosome size).
+% genomes with ERs: for each genome, we identified the largest ER and assigned it to a chromosome-normalized size category using 5%chr bins (e.g. 0–5%, 5–10%, …). Each genome therefore contributes to exactly one bin, defined solely by the size of its largest ER; for example, a genome whose largest ER represents 44% of chromosome length falls into the 40–45%chr bin, regardless of additional smaller ERs. For each genus, we then calculated the percentage of genomes occupying each size bin.
 </p>
 
-<p>
-GC content exhibits a strong and consistent host-linked signal across phyla, supporting the
-use of ΔGC as a biologically meaningful normalization. In contrast, %chr does not show a
-universal or stable relationship with chromosome size, but is included for methodological
-completeness.
-</p>
-
-<p>
-We generated four comparative two-dimensional plots using all ERs:
-</p>
-
-<ol>
-<li>Absolute GC (%) vs. absolute size (bp)</li>
-<li>ΔGC vs. absolute size (bp)</li>
-<li>Absolute GC (%) vs. %chr</li>
-<li>ΔGC vs. %chr</li>
-</ol>
-
-<p>
-Two complementary visualization modes are provided. In the first, chromosomes are plotted
-together with ERs. In the second, only ERs are shown, with axes scaled to ER ranges.
-</p>
 
 <h2>Interactive visualizations</h2>
 
 <ul>
-<li><a href="supplementary_data_8_plots/replicon_metrics_4way_norm_all.html">Chromosomes + ERs, linear scale</a></li>
+<li><a href="supplementary_data_tree/semi-radial.svg">semi-radial representation</a></li>
 <li><a href="supplementary_data_8_plots/replicon_metrics_4way_log10_all.html">Chromosomes + ERs, log10 scale</a></li>
 <li><a href="supplementary_data_8_plots/replicon_metrics_4way_norm_ERonly.html">ER-only, linear scale</a></li>
 <li><a href="supplementary_data_8_plots/replicon_metrics_4way_log10_ERonly.html">ER-only, log10 scale</a></li>
