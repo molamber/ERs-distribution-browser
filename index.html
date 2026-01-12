@@ -9,6 +9,49 @@
     <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
+<!-- CSS intégré pour corriger le hero -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero {
+            background-image: url("background.jpg"); /* garde ton image ici */
+            background-size: cover;
+            background-position: center;
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-overlay {
+            padding: 4rem 6rem;
+            max-width: 1100px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .authors {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero-overlay {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
@@ -39,7 +82,7 @@
         <!-- Onglet principal -->
         <div id="main" class="tab-content">
             <p>
-                These interactive visualisations allow you to explore additional data from the article, in particular the distribution and properties of bacterial extrachromosomal elements (ERs). Each tab provides a different interactive analysis.
+                These interactive visualisations allow you to explore additional data from the article, in particular the distribution and properties of bacterial extrachromosomal replicons (ERs). Each tab provides a different interactive analysis.
             </p>
             <p>
                 Contact the authors for more information:<br>
