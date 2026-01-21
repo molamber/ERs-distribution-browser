@@ -1,0 +1,2080 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ΔGC vs size — regression statistics</title>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#reg_table').DataTable({
+        "pageLength": 50
+    });
+});
+</script>
+</head>
+<body>
+<h1>ΔGC vs replicon size — regression statistics for taxa with ≥100 ERs</h1>
+<table border="1" class="dataframe display compact" id="reg_table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>rank</th>
+      <th>taxon</th>
+      <th>N_total</th>
+      <th>n_neg</th>
+      <th>slope_neg</th>
+      <th>p_neg</th>
+      <th>interp_neg</th>
+      <th>n_pos</th>
+      <th>slope_pos</th>
+      <th>p_pos</th>
+      <th>interp_pos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>phylum</td>
+      <td>Actinomycetota</td>
+      <td>1824</td>
+      <td>1603</td>
+      <td>0.035879</td>
+      <td>1.044014e-31</td>
+      <td>convergence toward chromosome</td>
+      <td>221</td>
+      <td>-0.095297</td>
+      <td>2.949176e-08</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>phylum</td>
+      <td>Bacillota</td>
+      <td>10464</td>
+      <td>9424</td>
+      <td>0.032820</td>
+      <td>2.363898e-36</td>
+      <td>convergence toward chromosome</td>
+      <td>1040</td>
+      <td>-0.033087</td>
+      <td>6.219014e-09</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>phylum</td>
+      <td>Bacteroidota</td>
+      <td>582</td>
+      <td>365</td>
+      <td>0.038221</td>
+      <td>4.739940e-04</td>
+      <td>convergence toward chromosome</td>
+      <td>217</td>
+      <td>-0.134285</td>
+      <td>5.508066e-06</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>phylum</td>
+      <td>Campylobacterota</td>
+      <td>488</td>
+      <td>437</td>
+      <td>-0.020769</td>
+      <td>1.155147e-01</td>
+      <td>no significant trend</td>
+      <td>51</td>
+      <td>-0.037212</td>
+      <td>4.991030e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>phylum</td>
+      <td>Cyanobacteriota</td>
+      <td>486</td>
+      <td>320</td>
+      <td>0.070312</td>
+      <td>1.667945e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>166</td>
+      <td>-0.145699</td>
+      <td>1.831561e-05</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>phylum</td>
+      <td>Deinococcota</td>
+      <td>219</td>
+      <td>185</td>
+      <td>0.069982</td>
+      <td>3.570142e-12</td>
+      <td>convergence toward chromosome</td>
+      <td>34</td>
+      <td>-0.310907</td>
+      <td>1.601882e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>phylum</td>
+      <td>Pseudomonadota</td>
+      <td>38747</td>
+      <td>30308</td>
+      <td>0.061668</td>
+      <td>0.000000e+00</td>
+      <td>convergence toward chromosome</td>
+      <td>8439</td>
+      <td>-0.109651</td>
+      <td>2.337617e-162</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>phylum</td>
+      <td>Spirochaetota</td>
+      <td>1496</td>
+      <td>861</td>
+      <td>0.065159</td>
+      <td>6.055371e-31</td>
+      <td>convergence toward chromosome</td>
+      <td>635</td>
+      <td>-0.052391</td>
+      <td>7.829893e-17</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Actinomycetes</td>
+      <td>1805</td>
+      <td>1587</td>
+      <td>0.035649</td>
+      <td>1.561159e-31</td>
+      <td>convergence toward chromosome</td>
+      <td>218</td>
+      <td>-0.097216</td>
+      <td>1.589847e-08</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Alphaproteobacteria</td>
+      <td>4764</td>
+      <td>3423</td>
+      <td>0.132305</td>
+      <td>7.576535e-243</td>
+      <td>convergence toward chromosome</td>
+      <td>1341</td>
+      <td>-0.237647</td>
+      <td>2.704614e-101</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Bacilli</td>
+      <td>9662</td>
+      <td>8751</td>
+      <td>0.030352</td>
+      <td>1.179852e-29</td>
+      <td>convergence toward chromosome</td>
+      <td>911</td>
+      <td>-0.033739</td>
+      <td>1.569218e-06</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Bacteroidia</td>
+      <td>255</td>
+      <td>153</td>
+      <td>-0.002671</td>
+      <td>8.692223e-01</td>
+      <td>no significant trend</td>
+      <td>102</td>
+      <td>-0.164918</td>
+      <td>1.661813e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Betaproteobacteria</td>
+      <td>1940</td>
+      <td>1294</td>
+      <td>0.090089</td>
+      <td>5.337782e-43</td>
+      <td>convergence toward chromosome</td>
+      <td>646</td>
+      <td>-0.324664</td>
+      <td>4.509994e-43</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Clostridia</td>
+      <td>776</td>
+      <td>650</td>
+      <td>0.077535</td>
+      <td>8.251791e-08</td>
+      <td>convergence toward chromosome</td>
+      <td>126</td>
+      <td>-0.037363</td>
+      <td>1.777783e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Cyanophyceae</td>
+      <td>486</td>
+      <td>320</td>
+      <td>0.070312</td>
+      <td>1.667945e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>166</td>
+      <td>-0.145699</td>
+      <td>1.831561e-05</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Cytophagia</td>
+      <td>212</td>
+      <td>133</td>
+      <td>0.072988</td>
+      <td>5.919536e-05</td>
+      <td>convergence toward chromosome</td>
+      <td>79</td>
+      <td>-0.076523</td>
+      <td>1.046919e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Deinococci</td>
+      <td>219</td>
+      <td>185</td>
+      <td>0.069982</td>
+      <td>3.570142e-12</td>
+      <td>convergence toward chromosome</td>
+      <td>34</td>
+      <td>-0.310907</td>
+      <td>1.601882e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Epsilonproteobacteria</td>
+      <td>488</td>
+      <td>437</td>
+      <td>-0.020769</td>
+      <td>1.155147e-01</td>
+      <td>no significant trend</td>
+      <td>51</td>
+      <td>-0.037212</td>
+      <td>4.991030e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Gammaproteobacteria</td>
+      <td>32022</td>
+      <td>25571</td>
+      <td>0.044419</td>
+      <td>0.000000e+00</td>
+      <td>convergence toward chromosome</td>
+      <td>6451</td>
+      <td>-0.052020</td>
+      <td>1.187471e-46</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Spirochaetia</td>
+      <td>1496</td>
+      <td>861</td>
+      <td>0.065159</td>
+      <td>6.055371e-31</td>
+      <td>convergence toward chromosome</td>
+      <td>635</td>
+      <td>-0.052391</td>
+      <td>7.829893e-17</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Acetobacterales</td>
+      <td>340</td>
+      <td>243</td>
+      <td>0.053332</td>
+      <td>1.604569e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>97</td>
+      <td>-0.289831</td>
+      <td>1.085826e-11</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Aeromonadales</td>
+      <td>352</td>
+      <td>324</td>
+      <td>-0.017860</td>
+      <td>1.179524e-01</td>
+      <td>no significant trend</td>
+      <td>28</td>
+      <td>-0.009915</td>
+      <td>9.267977e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Alteromonadales</td>
+      <td>191</td>
+      <td>162</td>
+      <td>0.249767</td>
+      <td>9.128770e-18</td>
+      <td>convergence toward chromosome</td>
+      <td>29</td>
+      <td>0.012266</td>
+      <td>7.675231e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Bacillales</td>
+      <td>4802</td>
+      <td>4421</td>
+      <td>0.012346</td>
+      <td>4.248140e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>381</td>
+      <td>-0.053262</td>
+      <td>7.154582e-11</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Bacteroidales</td>
+      <td>255</td>
+      <td>153</td>
+      <td>-0.002671</td>
+      <td>8.692223e-01</td>
+      <td>no significant trend</td>
+      <td>102</td>
+      <td>-0.164918</td>
+      <td>1.661813e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Burkholderiales</td>
+      <td>1636</td>
+      <td>1007</td>
+      <td>0.143954</td>
+      <td>7.863545e-126</td>
+      <td>convergence toward chromosome</td>
+      <td>629</td>
+      <td>-0.571394</td>
+      <td>1.849669e-56</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Campylobacterales</td>
+      <td>480</td>
+      <td>429</td>
+      <td>-0.022092</td>
+      <td>1.019058e-01</td>
+      <td>no significant trend</td>
+      <td>51</td>
+      <td>-0.037212</td>
+      <td>4.991030e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Cytophagales</td>
+      <td>212</td>
+      <td>133</td>
+      <td>0.072988</td>
+      <td>5.919536e-05</td>
+      <td>convergence toward chromosome</td>
+      <td>79</td>
+      <td>-0.076523</td>
+      <td>1.046919e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Deinococcales</td>
+      <td>131</td>
+      <td>116</td>
+      <td>0.085863</td>
+      <td>3.735056e-18</td>
+      <td>convergence toward chromosome</td>
+      <td>15</td>
+      <td>-0.177175</td>
+      <td>2.400942e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Enterobacterales</td>
+      <td>26010</td>
+      <td>20690</td>
+      <td>0.034505</td>
+      <td>5.725938e-181</td>
+      <td>convergence toward chromosome</td>
+      <td>5320</td>
+      <td>-0.038516</td>
+      <td>9.585080e-25</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Eubacteriales</td>
+      <td>573</td>
+      <td>521</td>
+      <td>0.094728</td>
+      <td>2.206092e-08</td>
+      <td>convergence toward chromosome</td>
+      <td>52</td>
+      <td>-0.036695</td>
+      <td>1.548698e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Hyphomicrobiales</td>
+      <td>2200</td>
+      <td>1693</td>
+      <td>0.183537</td>
+      <td>2.638111e-153</td>
+      <td>convergence toward chromosome</td>
+      <td>507</td>
+      <td>-0.160740</td>
+      <td>2.423214e-24</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Kitasatosporales</td>
+      <td>714</td>
+      <td>609</td>
+      <td>0.038460</td>
+      <td>5.181134e-20</td>
+      <td>convergence toward chromosome</td>
+      <td>105</td>
+      <td>-0.068079</td>
+      <td>1.859372e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Lactobacillales</td>
+      <td>4860</td>
+      <td>4330</td>
+      <td>0.047685</td>
+      <td>1.147774e-46</td>
+      <td>convergence toward chromosome</td>
+      <td>530</td>
+      <td>0.015289</td>
+      <td>2.032382e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Leptospirales</td>
+      <td>221</td>
+      <td>122</td>
+      <td>0.133536</td>
+      <td>9.015213e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>99</td>
+      <td>-0.133121</td>
+      <td>1.198389e-10</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Lysobacterales</td>
+      <td>599</td>
+      <td>579</td>
+      <td>0.021953</td>
+      <td>4.301453e-05</td>
+      <td>convergence toward chromosome</td>
+      <td>20</td>
+      <td>-0.146701</td>
+      <td>8.466639e-02</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Micrococcales</td>
+      <td>296</td>
+      <td>281</td>
+      <td>0.019657</td>
+      <td>3.000587e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>15</td>
+      <td>-0.109731</td>
+      <td>2.107576e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Moraxellales</td>
+      <td>2366</td>
+      <td>1830</td>
+      <td>0.035270</td>
+      <td>4.185474e-11</td>
+      <td>convergence toward chromosome</td>
+      <td>536</td>
+      <td>-0.031501</td>
+      <td>5.959001e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Mycobacteriales</td>
+      <td>676</td>
+      <td>612</td>
+      <td>0.043530</td>
+      <td>8.030535e-10</td>
+      <td>convergence toward chromosome</td>
+      <td>64</td>
+      <td>-0.092735</td>
+      <td>9.931645e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Neisseriales</td>
+      <td>271</td>
+      <td>263</td>
+      <td>-0.022972</td>
+      <td>2.930690e-04</td>
+      <td>divergence away from chromosome</td>
+      <td>8</td>
+      <td>-0.018843</td>
+      <td>5.961690e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Nostocales</td>
+      <td>209</td>
+      <td>124</td>
+      <td>0.164017</td>
+      <td>2.142970e-07</td>
+      <td>convergence toward chromosome</td>
+      <td>85</td>
+      <td>-0.176497</td>
+      <td>3.258600e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Peptostreptococcales</td>
+      <td>171</td>
+      <td>104</td>
+      <td>0.029766</td>
+      <td>3.276838e-01</td>
+      <td>no significant trend</td>
+      <td>67</td>
+      <td>-0.036673</td>
+      <td>6.089651e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Pseudomonadales</td>
+      <td>727</td>
+      <td>688</td>
+      <td>0.006833</td>
+      <td>2.445821e-01</td>
+      <td>no significant trend</td>
+      <td>39</td>
+      <td>-0.149448</td>
+      <td>3.695865e-07</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Rhodobacterales</td>
+      <td>1541</td>
+      <td>958</td>
+      <td>0.093092</td>
+      <td>7.301299e-62</td>
+      <td>convergence toward chromosome</td>
+      <td>583</td>
+      <td>-0.136349</td>
+      <td>1.235100e-25</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Rhodospirillales</td>
+      <td>162</td>
+      <td>97</td>
+      <td>0.209758</td>
+      <td>4.845770e-18</td>
+      <td>convergence toward chromosome</td>
+      <td>65</td>
+      <td>-0.510104</td>
+      <td>8.128068e-05</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Sphingomonadales</td>
+      <td>416</td>
+      <td>367</td>
+      <td>0.066560</td>
+      <td>1.153067e-08</td>
+      <td>convergence toward chromosome</td>
+      <td>49</td>
+      <td>-0.273543</td>
+      <td>4.669511e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Spirochaetales</td>
+      <td>1265</td>
+      <td>729</td>
+      <td>0.065563</td>
+      <td>5.268324e-29</td>
+      <td>convergence toward chromosome</td>
+      <td>536</td>
+      <td>-0.022064</td>
+      <td>1.209647e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Thiotrichales</td>
+      <td>371</td>
+      <td>302</td>
+      <td>0.190892</td>
+      <td>3.866589e-25</td>
+      <td>convergence toward chromosome</td>
+      <td>69</td>
+      <td>0.007010</td>
+      <td>3.638279e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>Vibrionales</td>
+      <td>1159</td>
+      <td>834</td>
+      <td>0.269653</td>
+      <td>3.688166e-73</td>
+      <td>convergence toward chromosome</td>
+      <td>325</td>
+      <td>-0.202623</td>
+      <td>7.373295e-30</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Acetobacteraceae</td>
+      <td>245</td>
+      <td>151</td>
+      <td>0.026048</td>
+      <td>4.173369e-02</td>
+      <td>convergence toward chromosome</td>
+      <td>94</td>
+      <td>-0.287243</td>
+      <td>1.089972e-10</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Aeromonadaceae</td>
+      <td>351</td>
+      <td>323</td>
+      <td>-0.019125</td>
+      <td>9.331595e-02</td>
+      <td>no significant trend</td>
+      <td>28</td>
+      <td>-0.009915</td>
+      <td>9.267977e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Azospirillaceae</td>
+      <td>150</td>
+      <td>88</td>
+      <td>0.201246</td>
+      <td>3.335049e-15</td>
+      <td>convergence toward chromosome</td>
+      <td>62</td>
+      <td>-0.334580</td>
+      <td>6.826058e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Bacillaceae</td>
+      <td>2287</td>
+      <td>2045</td>
+      <td>0.030585</td>
+      <td>7.401962e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>242</td>
+      <td>-0.052941</td>
+      <td>4.169530e-10</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Bacteroidaceae</td>
+      <td>151</td>
+      <td>105</td>
+      <td>-0.083860</td>
+      <td>8.052952e-09</td>
+      <td>divergence away from chromosome</td>
+      <td>46</td>
+      <td>-0.028165</td>
+      <td>5.743193e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Borreliaceae</td>
+      <td>1252</td>
+      <td>716</td>
+      <td>0.073152</td>
+      <td>2.978711e-38</td>
+      <td>convergence toward chromosome</td>
+      <td>536</td>
+      <td>-0.022064</td>
+      <td>1.209647e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Brucellaceae</td>
+      <td>258</td>
+      <td>52</td>
+      <td>0.264119</td>
+      <td>1.186399e-08</td>
+      <td>convergence toward chromosome</td>
+      <td>206</td>
+      <td>-0.231117</td>
+      <td>2.276756e-62</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Burkholderiaceae</td>
+      <td>1434</td>
+      <td>832</td>
+      <td>0.182412</td>
+      <td>1.278825e-148</td>
+      <td>convergence toward chromosome</td>
+      <td>602</td>
+      <td>-0.372886</td>
+      <td>5.367340e-31</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Campylobacteraceae</td>
+      <td>334</td>
+      <td>289</td>
+      <td>-0.065972</td>
+      <td>5.518620e-05</td>
+      <td>divergence away from chromosome</td>
+      <td>45</td>
+      <td>-0.018750</td>
+      <td>3.496541e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Clostridiaceae</td>
+      <td>553</td>
+      <td>507</td>
+      <td>0.131805</td>
+      <td>3.100491e-11</td>
+      <td>convergence toward chromosome</td>
+      <td>46</td>
+      <td>-0.025539</td>
+      <td>5.551939e-02</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Comamonadaceae</td>
+      <td>137</td>
+      <td>121</td>
+      <td>0.065444</td>
+      <td>2.238814e-07</td>
+      <td>convergence toward chromosome</td>
+      <td>16</td>
+      <td>-0.409732</td>
+      <td>1.733347e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Deinococcaceae</td>
+      <td>131</td>
+      <td>116</td>
+      <td>0.085863</td>
+      <td>3.735056e-18</td>
+      <td>convergence toward chromosome</td>
+      <td>15</td>
+      <td>-0.177175</td>
+      <td>2.400942e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Enterobacteriaceae</td>
+      <td>24207</td>
+      <td>19495</td>
+      <td>0.033127</td>
+      <td>6.503970e-157</td>
+      <td>convergence toward chromosome</td>
+      <td>4712</td>
+      <td>-0.097422</td>
+      <td>1.825651e-75</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Enterococcaceae</td>
+      <td>2028</td>
+      <td>1884</td>
+      <td>0.014176</td>
+      <td>9.103316e-02</td>
+      <td>no significant trend</td>
+      <td>144</td>
+      <td>0.029737</td>
+      <td>2.496671e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Erwiniaceae</td>
+      <td>525</td>
+      <td>418</td>
+      <td>0.081758</td>
+      <td>1.206136e-12</td>
+      <td>convergence toward chromosome</td>
+      <td>107</td>
+      <td>-0.047455</td>
+      <td>3.512378e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Hafniaceae</td>
+      <td>173</td>
+      <td>163</td>
+      <td>0.063360</td>
+      <td>5.817927e-05</td>
+      <td>convergence toward chromosome</td>
+      <td>10</td>
+      <td>-0.150310</td>
+      <td>3.357133e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Helicobacteraceae</td>
+      <td>122</td>
+      <td>120</td>
+      <td>-0.083664</td>
+      <td>1.837033e-07</td>
+      <td>divergence away from chromosome</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Lactobacillaceae</td>
+      <td>2210</td>
+      <td>1907</td>
+      <td>0.070428</td>
+      <td>1.114665e-82</td>
+      <td>convergence toward chromosome</td>
+      <td>303</td>
+      <td>-0.007157</td>
+      <td>4.954516e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Leptospiraceae</td>
+      <td>221</td>
+      <td>122</td>
+      <td>0.133536</td>
+      <td>9.015213e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>99</td>
+      <td>-0.133121</td>
+      <td>1.198389e-10</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Listeriaceae</td>
+      <td>120</td>
+      <td>118</td>
+      <td>-0.013121</td>
+      <td>5.217439e-01</td>
+      <td>no significant trend</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Lysobacteraceae</td>
+      <td>592</td>
+      <td>572</td>
+      <td>0.017245</td>
+      <td>5.826250e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>20</td>
+      <td>-0.146701</td>
+      <td>8.466639e-02</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Methylobacteriaceae</td>
+      <td>115</td>
+      <td>113</td>
+      <td>0.097859</td>
+      <td>1.847915e-09</td>
+      <td>convergence toward chromosome</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Microbacteriaceae</td>
+      <td>129</td>
+      <td>127</td>
+      <td>0.009779</td>
+      <td>1.586777e-01</td>
+      <td>no significant trend</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Micrococcaceae</td>
+      <td>140</td>
+      <td>128</td>
+      <td>0.065501</td>
+      <td>4.688134e-04</td>
+      <td>convergence toward chromosome</td>
+      <td>12</td>
+      <td>-0.196272</td>
+      <td>3.355565e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Moraxellaceae</td>
+      <td>2366</td>
+      <td>1830</td>
+      <td>0.035270</td>
+      <td>4.185474e-11</td>
+      <td>convergence toward chromosome</td>
+      <td>536</td>
+      <td>-0.031501</td>
+      <td>5.959001e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Morganellaceae</td>
+      <td>533</td>
+      <td>171</td>
+      <td>0.054083</td>
+      <td>1.735024e-05</td>
+      <td>convergence toward chromosome</td>
+      <td>362</td>
+      <td>0.013885</td>
+      <td>4.271468e-02</td>
+      <td>divergence away from chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Mycobacteriaceae</td>
+      <td>247</td>
+      <td>218</td>
+      <td>0.033551</td>
+      <td>2.219878e-01</td>
+      <td>no significant trend</td>
+      <td>29</td>
+      <td>-0.116242</td>
+      <td>4.716779e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Neisseriaceae</td>
+      <td>255</td>
+      <td>254</td>
+      <td>-0.022691</td>
+      <td>3.142744e-04</td>
+      <td>divergence away from chromosome</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Nitrobacteraceae</td>
+      <td>121</td>
+      <td>118</td>
+      <td>-0.039796</td>
+      <td>2.421809e-01</td>
+      <td>no significant trend</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Nocardiaceae</td>
+      <td>314</td>
+      <td>295</td>
+      <td>0.016748</td>
+      <td>4.148148e-01</td>
+      <td>no significant trend</td>
+      <td>19</td>
+      <td>-0.158819</td>
+      <td>5.287765e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Nostocaceae</td>
+      <td>156</td>
+      <td>99</td>
+      <td>0.144235</td>
+      <td>2.547371e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>57</td>
+      <td>-0.218689</td>
+      <td>7.792006e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Paenibacillaceae</td>
+      <td>107</td>
+      <td>95</td>
+      <td>-0.067200</td>
+      <td>3.774461e-04</td>
+      <td>divergence away from chromosome</td>
+      <td>12</td>
+      <td>-0.399825</td>
+      <td>5.248000e-02</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Paracoccaceae</td>
+      <td>418</td>
+      <td>269</td>
+      <td>0.095802</td>
+      <td>2.702494e-24</td>
+      <td>convergence toward chromosome</td>
+      <td>149</td>
+      <td>-0.233864</td>
+      <td>2.476626e-05</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Peptostreptococcaceae</td>
+      <td>166</td>
+      <td>100</td>
+      <td>0.031484</td>
+      <td>4.002842e-01</td>
+      <td>no significant trend</td>
+      <td>66</td>
+      <td>-0.031192</td>
+      <td>9.738445e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Phyllobacteriaceae</td>
+      <td>125</td>
+      <td>107</td>
+      <td>0.137620</td>
+      <td>5.743713e-07</td>
+      <td>convergence toward chromosome</td>
+      <td>18</td>
+      <td>-0.159176</td>
+      <td>2.894596e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Piscirickettsiaceae</td>
+      <td>336</td>
+      <td>272</td>
+      <td>0.181580</td>
+      <td>2.702558e-18</td>
+      <td>convergence toward chromosome</td>
+      <td>64</td>
+      <td>0.004884</td>
+      <td>4.953030e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Pseudomonadaceae</td>
+      <td>708</td>
+      <td>671</td>
+      <td>0.006186</td>
+      <td>2.943781e-01</td>
+      <td>no significant trend</td>
+      <td>37</td>
+      <td>-0.153089</td>
+      <td>4.948214e-07</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Rhizobiaceae</td>
+      <td>1381</td>
+      <td>1130</td>
+      <td>0.166169</td>
+      <td>2.061031e-79</td>
+      <td>convergence toward chromosome</td>
+      <td>251</td>
+      <td>-0.098690</td>
+      <td>1.181279e-09</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Roseobacteraceae</td>
+      <td>1123</td>
+      <td>689</td>
+      <td>0.093469</td>
+      <td>1.434831e-32</td>
+      <td>convergence toward chromosome</td>
+      <td>434</td>
+      <td>-0.073486</td>
+      <td>1.183100e-11</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Sphingomonadaceae</td>
+      <td>331</td>
+      <td>289</td>
+      <td>0.083304</td>
+      <td>2.496528e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>42</td>
+      <td>-0.384214</td>
+      <td>2.354934e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Staphylococcaceae</td>
+      <td>2172</td>
+      <td>2059</td>
+      <td>-0.011409</td>
+      <td>7.301871e-02</td>
+      <td>no significant trend</td>
+      <td>113</td>
+      <td>-0.044350</td>
+      <td>3.945481e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Streptococcaceae</td>
+      <td>589</td>
+      <td>507</td>
+      <td>0.063780</td>
+      <td>4.525238e-08</td>
+      <td>convergence toward chromosome</td>
+      <td>82</td>
+      <td>-0.060664</td>
+      <td>1.542129e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Streptomycetaceae</td>
+      <td>714</td>
+      <td>609</td>
+      <td>0.038460</td>
+      <td>5.181134e-20</td>
+      <td>convergence toward chromosome</td>
+      <td>105</td>
+      <td>-0.068079</td>
+      <td>1.859372e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Vibrionaceae</td>
+      <td>1159</td>
+      <td>834</td>
+      <td>0.269653</td>
+      <td>3.688166e-73</td>
+      <td>convergence toward chromosome</td>
+      <td>325</td>
+      <td>-0.202623</td>
+      <td>7.373295e-30</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>family</td>
+      <td>Yersiniaceae</td>
+      <td>547</td>
+      <td>423</td>
+      <td>0.029553</td>
+      <td>1.238677e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>124</td>
+      <td>-0.065684</td>
+      <td>3.447904e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Acetobacter</i></td>
+      <td>104</td>
+      <td>27</td>
+      <td>0.001307</td>
+      <td>9.740149e-01</td>
+      <td>no significant trend</td>
+      <td>77</td>
+      <td>-0.280501</td>
+      <td>9.848071e-10</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Acinetobacter</i></td>
+      <td>2204</td>
+      <td>1673</td>
+      <td>0.032680</td>
+      <td>4.056355e-09</td>
+      <td>convergence toward chromosome</td>
+      <td>531</td>
+      <td>-0.031324</td>
+      <td>6.518214e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Aeromonas</i></td>
+      <td>343</td>
+      <td>316</td>
+      <td>-0.019930</td>
+      <td>8.205967e-02</td>
+      <td>no significant trend</td>
+      <td>27</td>
+      <td>0.003601</td>
+      <td>9.733109e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Arsenophonus</i></td>
+      <td>110</td>
+      <td>30</td>
+      <td>0.090533</td>
+      <td>4.977849e-02</td>
+      <td>convergence toward chromosome</td>
+      <td>80</td>
+      <td>0.022826</td>
+      <td>3.549351e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Azospirillum</i></td>
+      <td>125</td>
+      <td>66</td>
+      <td>0.192728</td>
+      <td>2.972280e-10</td>
+      <td>convergence toward chromosome</td>
+      <td>59</td>
+      <td>-0.339665</td>
+      <td>6.639727e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Bacillus</i></td>
+      <td>1806</td>
+      <td>1588</td>
+      <td>0.040206</td>
+      <td>1.008756e-07</td>
+      <td>convergence toward chromosome</td>
+      <td>218</td>
+      <td>-0.049525</td>
+      <td>1.030917e-09</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Bacteroides</i></td>
+      <td>125</td>
+      <td>85</td>
+      <td>-0.084570</td>
+      <td>2.838308e-07</td>
+      <td>divergence away from chromosome</td>
+      <td>40</td>
+      <td>-0.048056</td>
+      <td>3.996036e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Borrelia</i></td>
+      <td>592</td>
+      <td>274</td>
+      <td>0.104517</td>
+      <td>4.474411e-12</td>
+      <td>convergence toward chromosome</td>
+      <td>318</td>
+      <td>-0.026648</td>
+      <td>1.711248e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Borreliella</i></td>
+      <td>660</td>
+      <td>442</td>
+      <td>0.080358</td>
+      <td>4.352446e-40</td>
+      <td>convergence toward chromosome</td>
+      <td>218</td>
+      <td>-0.018166</td>
+      <td>1.703413e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Bradyrhizobium</i></td>
+      <td>106</td>
+      <td>105</td>
+      <td>-0.159347</td>
+      <td>2.620587e-07</td>
+      <td>divergence away from chromosome</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Brucella/Ochrobactrum</i></td>
+      <td>245</td>
+      <td>42</td>
+      <td>0.491390</td>
+      <td>8.857817e-07</td>
+      <td>convergence toward chromosome</td>
+      <td>203</td>
+      <td>-0.381751</td>
+      <td>9.745111e-46</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Burkholderia</i></td>
+      <td>986</td>
+      <td>489</td>
+      <td>0.178854</td>
+      <td>5.630778e-121</td>
+      <td>convergence toward chromosome</td>
+      <td>497</td>
+      <td>-0.439122</td>
+      <td>3.585917e-30</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Campylobacter</i></td>
+      <td>334</td>
+      <td>289</td>
+      <td>-0.065972</td>
+      <td>5.518620e-05</td>
+      <td>divergence away from chromosome</td>
+      <td>45</td>
+      <td>-0.018750</td>
+      <td>3.496541e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Citrobacter</i></td>
+      <td>972</td>
+      <td>605</td>
+      <td>0.054964</td>
+      <td>2.572732e-19</td>
+      <td>convergence toward chromosome</td>
+      <td>367</td>
+      <td>-0.096769</td>
+      <td>2.646483e-14</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Clostridioides</i></td>
+      <td>123</td>
+      <td>65</td>
+      <td>0.096530</td>
+      <td>2.488544e-02</td>
+      <td>convergence toward chromosome</td>
+      <td>58</td>
+      <td>-0.035973</td>
+      <td>6.193215e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Clostridium</i></td>
+      <td>542</td>
+      <td>498</td>
+      <td>0.132721</td>
+      <td>6.904735e-11</td>
+      <td>convergence toward chromosome</td>
+      <td>44</td>
+      <td>-0.025308</td>
+      <td>6.369546e-02</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Deinococcus</i></td>
+      <td>131</td>
+      <td>116</td>
+      <td>0.085863</td>
+      <td>3.735056e-18</td>
+      <td>convergence toward chromosome</td>
+      <td>15</td>
+      <td>-0.177175</td>
+      <td>2.400942e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Edwardsiella</i></td>
+      <td>156</td>
+      <td>153</td>
+      <td>0.074264</td>
+      <td>1.835017e-05</td>
+      <td>convergence toward chromosome</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Enterobacter</i></td>
+      <td>1566</td>
+      <td>1456</td>
+      <td>0.014282</td>
+      <td>1.803683e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>110</td>
+      <td>0.025997</td>
+      <td>3.301190e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Enterococcus</i></td>
+      <td>1975</td>
+      <td>1844</td>
+      <td>0.011701</td>
+      <td>1.740895e-01</td>
+      <td>no significant trend</td>
+      <td>131</td>
+      <td>0.029523</td>
+      <td>2.365375e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Erwinia</i></td>
+      <td>130</td>
+      <td>115</td>
+      <td>0.015548</td>
+      <td>4.760697e-01</td>
+      <td>no significant trend</td>
+      <td>15</td>
+      <td>-0.065817</td>
+      <td>9.903866e-02</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Escherichia</i></td>
+      <td>9462</td>
+      <td>6148</td>
+      <td>0.056576</td>
+      <td>1.001698e-80</td>
+      <td>convergence toward chromosome</td>
+      <td>3314</td>
+      <td>-0.086344</td>
+      <td>8.770173e-34</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Helicobacter</i></td>
+      <td>122</td>
+      <td>120</td>
+      <td>-0.083664</td>
+      <td>1.837033e-07</td>
+      <td>divergence away from chromosome</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Klebsiella/Raoultella</i></td>
+      <td>9196</td>
+      <td>9056</td>
+      <td>0.046457</td>
+      <td>3.377090e-156</td>
+      <td>convergence toward chromosome</td>
+      <td>140</td>
+      <td>-0.064503</td>
+      <td>3.958885e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Lacticaseibacillus</i></td>
+      <td>215</td>
+      <td>202</td>
+      <td>0.138669</td>
+      <td>1.753015e-19</td>
+      <td>convergence toward chromosome</td>
+      <td>13</td>
+      <td>-0.036356</td>
+      <td>3.492629e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Lactiplantibacillus</i></td>
+      <td>909</td>
+      <td>895</td>
+      <td>0.104885</td>
+      <td>8.251495e-63</td>
+      <td>convergence toward chromosome</td>
+      <td>14</td>
+      <td>-0.009325</td>
+      <td>6.908259e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Lactobacillus</i></td>
+      <td>132</td>
+      <td>95</td>
+      <td>0.032990</td>
+      <td>3.022383e-01</td>
+      <td>no significant trend</td>
+      <td>37</td>
+      <td>-0.019487</td>
+      <td>5.679068e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Lactococcus</i></td>
+      <td>446</td>
+      <td>377</td>
+      <td>0.044150</td>
+      <td>3.754930e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>69</td>
+      <td>-0.123115</td>
+      <td>3.266000e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Leptospira</i></td>
+      <td>220</td>
+      <td>121</td>
+      <td>0.135260</td>
+      <td>4.913037e-06</td>
+      <td>convergence toward chromosome</td>
+      <td>99</td>
+      <td>-0.133121</td>
+      <td>1.198389e-10</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Leuconostoc</i></td>
+      <td>157</td>
+      <td>133</td>
+      <td>-0.008212</td>
+      <td>4.880221e-01</td>
+      <td>no significant trend</td>
+      <td>24</td>
+      <td>-0.031159</td>
+      <td>4.795215e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Levilactobacillus</i></td>
+      <td>146</td>
+      <td>145</td>
+      <td>0.061402</td>
+      <td>6.390669e-10</td>
+      <td>convergence toward chromosome</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Listeria</i></td>
+      <td>118</td>
+      <td>116</td>
+      <td>-0.014578</td>
+      <td>4.858165e-01</td>
+      <td>no significant trend</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Moraxella</i></td>
+      <td>123</td>
+      <td>120</td>
+      <td>0.131824</td>
+      <td>2.092693e-13</td>
+      <td>convergence toward chromosome</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Mycobacterium</i></td>
+      <td>157</td>
+      <td>150</td>
+      <td>0.056343</td>
+      <td>1.072816e-01</td>
+      <td>no significant trend</td>
+      <td>7</td>
+      <td>-0.072225</td>
+      <td>4.028374e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Neisseria</i></td>
+      <td>245</td>
+      <td>245</td>
+      <td>-0.021672</td>
+      <td>5.087957e-04</td>
+      <td>divergence away from chromosome</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Nostoc</i></td>
+      <td>135</td>
+      <td>84</td>
+      <td>0.143336</td>
+      <td>1.919564e-02</td>
+      <td>convergence toward chromosome</td>
+      <td>51</td>
+      <td>-0.320766</td>
+      <td>1.030863e-05</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Pantoea</i></td>
+      <td>290</td>
+      <td>271</td>
+      <td>0.116543</td>
+      <td>3.077057e-27</td>
+      <td>convergence toward chromosome</td>
+      <td>19</td>
+      <td>-0.273280</td>
+      <td>7.699680e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Paraburkholderia</i></td>
+      <td>147</td>
+      <td>140</td>
+      <td>0.288788</td>
+      <td>4.051515e-22</td>
+      <td>convergence toward chromosome</td>
+      <td>7</td>
+      <td>-0.145847</td>
+      <td>5.337273e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Paracoccus</i></td>
+      <td>203</td>
+      <td>133</td>
+      <td>0.093005</td>
+      <td>1.487680e-10</td>
+      <td>convergence toward chromosome</td>
+      <td>70</td>
+      <td>-0.458448</td>
+      <td>1.460374e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Pediococcus</i></td>
+      <td>150</td>
+      <td>63</td>
+      <td>0.068294</td>
+      <td>2.601418e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>87</td>
+      <td>0.022279</td>
+      <td>3.449394e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Phaeobacter</i></td>
+      <td>292</td>
+      <td>158</td>
+      <td>0.162410</td>
+      <td>5.417963e-15</td>
+      <td>convergence toward chromosome</td>
+      <td>134</td>
+      <td>0.039316</td>
+      <td>3.732980e-02</td>
+      <td>divergence away from chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Photobacterium</i></td>
+      <td>101</td>
+      <td>91</td>
+      <td>0.217726</td>
+      <td>3.258673e-04</td>
+      <td>convergence toward chromosome</td>
+      <td>10</td>
+      <td>-0.221384</td>
+      <td>2.056466e-06</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Piscirickettsia</i></td>
+      <td>331</td>
+      <td>271</td>
+      <td>0.185282</td>
+      <td>6.915758e-19</td>
+      <td>convergence toward chromosome</td>
+      <td>60</td>
+      <td>0.002465</td>
+      <td>6.102902e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Priestia</i></td>
+      <td>359</td>
+      <td>355</td>
+      <td>-0.068450</td>
+      <td>2.248204e-03</td>
+      <td>divergence away from chromosome</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Proteus</i></td>
+      <td>131</td>
+      <td>34</td>
+      <td>0.023521</td>
+      <td>3.892325e-01</td>
+      <td>no significant trend</td>
+      <td>97</td>
+      <td>0.048463</td>
+      <td>1.189244e-04</td>
+      <td>divergence away from chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Providencia</i></td>
+      <td>204</td>
+      <td>57</td>
+      <td>0.093177</td>
+      <td>6.124554e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>147</td>
+      <td>-0.002215</td>
+      <td>8.234565e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Pseudomonas</i></td>
+      <td>673</td>
+      <td>637</td>
+      <td>0.005449</td>
+      <td>3.741367e-01</td>
+      <td>no significant trend</td>
+      <td>36</td>
+      <td>-0.154703</td>
+      <td>5.517248e-07</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Pseudosulfitobacter</i></td>
+      <td>321</td>
+      <td>193</td>
+      <td>0.031624</td>
+      <td>4.267391e-02</td>
+      <td>convergence toward chromosome</td>
+      <td>128</td>
+      <td>-0.128031</td>
+      <td>1.582316e-20</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Ralstonia</i></td>
+      <td>101</td>
+      <td>48</td>
+      <td>0.274217</td>
+      <td>6.771762e-10</td>
+      <td>convergence toward chromosome</td>
+      <td>53</td>
+      <td>-0.122049</td>
+      <td>1.713213e-07</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Rhizobium/Agrobacterium</i></td>
+      <td>1052</td>
+      <td>828</td>
+      <td>0.158601</td>
+      <td>7.261184e-53</td>
+      <td>convergence toward chromosome</td>
+      <td>224</td>
+      <td>-0.380775</td>
+      <td>8.448318e-19</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Rhodococcus</i></td>
+      <td>272</td>
+      <td>255</td>
+      <td>0.016925</td>
+      <td>4.555993e-01</td>
+      <td>no significant trend</td>
+      <td>17</td>
+      <td>-0.151832</td>
+      <td>1.034448e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Salmonella</i></td>
+      <td>2174</td>
+      <td>1618</td>
+      <td>0.026175</td>
+      <td>7.186794e-08</td>
+      <td>convergence toward chromosome</td>
+      <td>556</td>
+      <td>-0.140230</td>
+      <td>1.278363e-29</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Serratia</i></td>
+      <td>245</td>
+      <td>229</td>
+      <td>0.022338</td>
+      <td>3.803687e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>16</td>
+      <td>-0.213572</td>
+      <td>1.453681e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Shigella</i></td>
+      <td>597</td>
+      <td>402</td>
+      <td>0.016654</td>
+      <td>3.212035e-01</td>
+      <td>no significant trend</td>
+      <td>195</td>
+      <td>-0.115722</td>
+      <td>2.277016e-04</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Sinorhizobium/Ensifer</i></td>
+      <td>253</td>
+      <td>241</td>
+      <td>0.212486</td>
+      <td>3.277090e-29</td>
+      <td>convergence toward chromosome</td>
+      <td>12</td>
+      <td>-0.073858</td>
+      <td>2.225817e-15</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Sphingobium</i></td>
+      <td>176</td>
+      <td>151</td>
+      <td>0.085060</td>
+      <td>1.017401e-03</td>
+      <td>convergence toward chromosome</td>
+      <td>25</td>
+      <td>-0.334407</td>
+      <td>1.279823e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Staphylococcus</i></td>
+      <td>2008</td>
+      <td>1903</td>
+      <td>-0.018745</td>
+      <td>1.181098e-02</td>
+      <td>divergence away from chromosome</td>
+      <td>105</td>
+      <td>-0.041792</td>
+      <td>6.755805e-02</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Streptococcus</i></td>
+      <td>143</td>
+      <td>130</td>
+      <td>0.021934</td>
+      <td>2.579792e-01</td>
+      <td>no significant trend</td>
+      <td>13</td>
+      <td>-0.025572</td>
+      <td>4.212516e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Streptomyces</i></td>
+      <td>683</td>
+      <td>584</td>
+      <td>0.038132</td>
+      <td>2.110850e-17</td>
+      <td>convergence toward chromosome</td>
+      <td>99</td>
+      <td>-0.065536</td>
+      <td>1.945071e-02</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Sulfitobacter</i></td>
+      <td>168</td>
+      <td>137</td>
+      <td>0.071122</td>
+      <td>2.509296e-04</td>
+      <td>convergence toward chromosome</td>
+      <td>31</td>
+      <td>-0.371554</td>
+      <td>3.762604e-03</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Vibrio</i></td>
+      <td>1025</td>
+      <td>714</td>
+      <td>0.282634</td>
+      <td>3.060450e-69</td>
+      <td>convergence toward chromosome</td>
+      <td>311</td>
+      <td>-0.207764</td>
+      <td>1.226393e-23</td>
+      <td>convergence toward chromosome</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Xanthomonas</i></td>
+      <td>530</td>
+      <td>518</td>
+      <td>0.015676</td>
+      <td>3.006837e-02</td>
+      <td>convergence toward chromosome</td>
+      <td>12</td>
+      <td>-0.119353</td>
+      <td>1.638800e-01</td>
+      <td>no significant trend</td>
+    </tr>
+    <tr>
+      <td>genus</td>
+      <td><i>Yersinia</i></td>
+      <td>279</td>
+      <td>175</td>
+      <td>-0.024883</td>
+      <td>2.242174e-01</td>
+      <td>no significant trend</td>
+      <td>104</td>
+      <td>-0.000331</td>
+      <td>9.907652e-01</td>
+      <td>no significant trend</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
