@@ -11925,6 +11925,29 @@ a {text-decoration: none; color: #4285F4;}
 a:hover {text-decoration: underline;}
 h1, h2 {margin-bottom: 10px;}
 details {margin-bottom: 20px;}
+
+/* Bonus: responsive main navigation (wrap on wide screens, horizontal scroll on narrow screens) */
+.main-nav{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:10px 12px;
+}
+
+@media (max-width: 900px){
+  .main-nav{
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    overflow-x:auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .main-nav a{
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+}
+
 </style>
 
 <h1>Scatter and violin plots of chromosomes and extrachromosomal replicons</h1>
@@ -12270,8 +12293,8 @@ These results are provided as an interactive sortable table:
 <style>
 body {
     font-family: Arial, sans-serif;
-  	html, body { margin: 0; width: 100%; height: 100%; }
-  	svg { display: block; width: 100vw; height: 100vh; }
+    margin: 40px;
+    max-width: 1000px;
 }
 </style>
 
@@ -12289,10 +12312,10 @@ In complementary to Figure 3, ER distributions are displayed on semi-circular an
 <h2>Interactive visualizations</h2>
 
 <ul>
-<li><a href="supplementary_data_tree/semi-radial.svg">% genomes with ERs per family (semi-circular representation)</a></li>
-<li><a href="supplementary_data_tree/radial.svg">% genomes with ERs per family (circular representation)</a></li>
-<li><a href="supplementary_data_tree/semi-radial_genus.svg">% genomes with ERs per genus (semi-circular representation)</a></li>
-<li><a href="supplementary_data_tree/radial_genus.svg">% genomes with ERs per genus (circular representation)</a></li>
+<li><a href="viewer.html?file=supplementary_data_tree/semi-radial.svg" target="_blank" rel="noopener">% genomes with ERs per family (semi-circular representation)</a></li>
+<li><a href="viewer.html?file=supplementary_data_tree/radial.svg" target="_blank" rel="noopener">% genomes with ERs per family (circular representation)</a></li>
+<li><a href="viewer.html?file=supplementary_data_tree/semi-radial_genus.svg" target="_blank" rel="noopener">% genomes with ERs per genus (semi-circular representation)</a></li>
+<li><a href="viewer.html?file=supplementary_data_tree/radial_genus.svg" target="_blank" rel="noopener">% genomes with ERs per genus (circular representation)</a></li>
 </ul>
 
 <p>
