@@ -1,62 +1,262 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SVG Viewer</title>
   <style>
-    html, body { height: 100%; margin: 0; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
+
     .topbar {
       position: sticky;
       top: 0;
-      background: #fff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 10px 12px;
+      z-index: 10;
       display: flex;
-      gap: 10px;
       align-items: center;
-      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
     }
-    .file { font-size: 14px; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .wrap { height: calc(100vh - 52px); }
-    object, iframe, img {
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 55vw;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #444;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .btn {
+      font-size: 12px;
+      padding: 6px 10px;
+      border: 1px solid rgba(0,0,0,0.18);
+      background: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn:hover { background: #f6f6f6; }
+
+    .viewer {
+      height: calc(100% - 44px);
+      width: 100%;
+    }
+
+    .canvas {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #svgHost {
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Make sure embedded SVG uses the available space */
+    #svgHost svg {
       width: 100%;
       height: 100%;
-      border: 0;
       display: block;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none; /* needed for pointer-based pan */
     }
-    .hint { font-size: 12px; color: #6b7280; }
+
+    .error {
+      padding: 16px;
+      color: #b00020;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
   <div class="topbar">
-    <div class="file" id="fileLabel">—</div>
-    <div class="hint">Tip: use browser zoom (Ctrl/Cmd + / -)</div>
+    <div class="title" id="fileTitle">SVG</div>
+    <button class="btn" id="resetBtn" type="button">Reset</button>
+    <button class="btn" id="fitBtn" type="button">Fit</button>
+    <div class="hint">Wheel = zoom • Drag = pan • Double‑click = reset</div>
   </div>
-  <div class="wrap">
-    <object id="svgObj" type="image/svg+xml" data=""></object>
+
+  <div class="viewer">
+    <div class="canvas">
+      <div id="svgHost"></div>
+      <div id="err" class="error" style="display:none"></div>
+    </div>
   </div>
 
   <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const file = params.get("file") || "";
-      // allow only relative paths with safe characters
-      const ok = /^[a-zA-Z0-9_./-]+\.svg$/.test(file) && !file.includes("..") && !file.startsWith("/");
-      const label = document.getElementById("fileLabel");
-      const obj = document.getElementById("svgObj");
+    // Reads ?file=... and loads that SVG inline so we can control its viewBox (pan/zoom).
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
 
-      if (!ok) {
-        label.textContent = "Invalid SVG path";
-        obj.outerHTML = "<div style=\"padding:16px\">Invalid SVG path.</div>";
+    const fileTitle = document.getElementById('fileTitle');
+    const host = document.getElementById('svgHost');
+    const err = document.getElementById('err');
+
+    function showError(msg) {
+      err.textContent = msg;
+      err.style.display = 'block';
+    }
+
+    if (!file) {
+      showError('Missing ?file=... parameter.');
+    } else {
+      if (window.location.protocol === 'file:') {
+        showError(
+          'This viewer must be opened via http(s) (e.g., GitHub Pages or a local web server). ' +
+          'Opening index/viewer with file:// blocks loading the SVG.'
+        );
+        // Stop here: browsers block fetch() from local files.
         return;
       }
+      // Resolve the requested path against this page, so it works even if viewer.html is moved
+      // (and avoids surprising resolution when the current URL has a different base path).
+      // Also block absolute/protocol URLs for safety.
+      if (/^(https?:|data:|javascript:)/i.test(file)) {
+        showError('For security reasons, only relative file paths are allowed.');
+      } else {
+        const fileUrl = new URL(file, document.baseURI);
+        const cleanName = fileUrl.pathname.split('/').pop();
+        fileTitle.textContent = cleanName;
 
-      label.textContent = file;
-      document.title = "SVG — " + file;
-      obj.setAttribute("data", file);
-    })();
+        fetch(fileUrl.href)
+        .then(r => {
+          if (!r.ok) throw new Error(`Could not load ${fileUrl.pathname} (HTTP ${r.status})`);
+          return r.text();
+        })
+        .then(svgText => {
+          host.innerHTML = svgText;
+          const svg = host.querySelector('svg');
+          if (!svg) throw new Error('The loaded file does not contain an <svg> element.');
+
+          // Ensure viewBox exists (required for robust pan/zoom).
+          if (!svg.getAttribute('viewBox')) {
+            // Try width/height, else fallback to bounding box after insertion.
+            const wAttr = parseFloat((svg.getAttribute('width') || '').replace('px',''));
+            const hAttr = parseFloat((svg.getAttribute('height') || '').replace('px',''));
+            const w = Number.isFinite(wAttr) ? wAttr : 1000;
+            const h = Number.isFinite(hAttr) ? hAttr : 1000;
+            svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+          }
+
+          // Capture the initial (fit) viewBox as baseline.
+          const initialVB = parseViewBox(svg);
+          let vb = { ...initialVB };
+          let isPanning = false;
+          let panStart = { x: 0, y: 0 };
+          let vbStart = { ...vb };
+
+          function parseViewBox(svgEl) {
+            const parts = (svgEl.getAttribute('viewBox') || '0 0 1000 1000')
+              .trim()
+              .split(/[ ,]+/)
+              .map(Number);
+            return { x: parts[0], y: parts[1], w: parts[2], h: parts[3] };
+          }
+
+          function setViewBox(newVB) {
+            vb = newVB;
+            svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+          }
+
+          function getMouseSvgCoords(evt) {
+            const rect = svg.getBoundingClientRect();
+            const rx = (evt.clientX - rect.left) / rect.width;
+            const ry = (evt.clientY - rect.top) / rect.height;
+            return {
+              rx: Math.min(1, Math.max(0, rx)),
+              ry: Math.min(1, Math.max(0, ry)),
+              x: vb.x + rx * vb.w,
+              y: vb.y + ry * vb.h,
+              rect
+            };
+          }
+
+          function zoomAt(evt, zoomIn) {
+            evt.preventDefault();
+            const factor = zoomIn ? 1 / 1.12 : 1.12;
+            const m = getMouseSvgCoords(evt);
+            const newW = vb.w * factor;
+            const newH = vb.h * factor;
+            const newX = m.x - m.rx * newW;
+            const newY = m.y - m.ry * newH;
+            setViewBox({ x: newX, y: newY, w: newW, h: newH });
+          }
+
+          svg.addEventListener('wheel', (evt) => {
+            const zoomIn = evt.deltaY < 0;
+            zoomAt(evt, zoomIn);
+          }, { passive: false });
+
+          svg.addEventListener('pointerdown', (evt) => {
+            // Left button / primary pointer
+            isPanning = true;
+            svg.style.cursor = 'grabbing';
+            svg.setPointerCapture(evt.pointerId);
+            panStart = { x: evt.clientX, y: evt.clientY };
+            vbStart = { ...vb };
+          });
+
+          svg.addEventListener('pointermove', (evt) => {
+            if (!isPanning) return;
+            const rect = svg.getBoundingClientRect();
+            const dxPx = evt.clientX - panStart.x;
+            const dyPx = evt.clientY - panStart.y;
+            const dx = (dxPx / rect.width) * vbStart.w;
+            const dy = (dyPx / rect.height) * vbStart.h;
+            setViewBox({ x: vbStart.x - dx, y: vbStart.y - dy, w: vbStart.w, h: vbStart.h });
+          });
+
+          function endPan(evt) {
+            if (!isPanning) return;
+            isPanning = false;
+            svg.style.cursor = 'grab';
+            try { svg.releasePointerCapture(evt.pointerId); } catch (_) {}
+          }
+
+          svg.addEventListener('pointerup', endPan);
+          svg.addEventListener('pointercancel', endPan);
+          svg.addEventListener('pointerleave', endPan);
+
+          svg.addEventListener('dblclick', () => {
+            setViewBox({ ...initialVB });
+          });
+
+          // Buttons
+          document.getElementById('resetBtn').addEventListener('click', () => {
+            setViewBox({ ...initialVB });
+          });
+
+          document.getElementById('fitBtn').addEventListener('click', () => {
+            // "Fit" here = reset to the SVG's initial viewBox.
+            setViewBox({ ...initialVB });
+          });
+
+          // Improve cursor affordance.
+          svg.style.cursor = 'grab';
+        })
+        .catch(e => showError(e.message));
+      }
+    }
   </script>
 </body>
 </html>

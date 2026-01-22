@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<title>Supplementary Data | Replication Coordination</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- DataTables CSS -->
+<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js" type="text/javascript"></script>
+<style>
+/* === Global layout overrides for responsive header/nav + full-bleed hero === */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f6f7f9;
+    color: #1a1a1a;
+}
+
+/* HERO */
+.hero {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #111827 60%, #0b1220 100%);
+}
+
+
+.hero-overlay{
+  box-sizing:border-box;
+  max-width:1100px;
+  padding:18px 18px;
+  margin:0 auto;
+  border-radius:18px;
+  background:rgba(0,0,0,0.55);
+}
+
+.hero h1{
+  margin:0 0 12px;
+  line-height:1.2;
+  font-size:clamp(1.35rem, 2.2vw, 2.1rem);
+}
+
+.authors{
+  margin:0;
+  font-size:0.95rem;
+  line-height:1.35;
+  opacity:0.95;
+}
+
+/* NAV */
+.main-nav{
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
+  padding:12px 16px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  background:#ffffff;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.main-nav a{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 12px;
+  border-radius:999px;
+  white-space:nowrap;
+  text-decoration:none;
+  color:#1a1a1a;
+  background:#f2f2f2;
+}
+
+.main-nav a:hover{ background:#e8e8e8; }
+
+/* Main content cards */
+.tabcontent{
+  max-width:none;
+  margin:18px 0 32px;
+  width:100%;
+  box-sizing:border-box;
+  background:#fff;
+}
+
+/* Normalize in-page titles: keep them readable but not huge */
+.tabcontent h1,
+.tabcontent h2,
+.tabcontent h3{
+  font-size:22px;
+  line-height:1.25;
+  font-weight:600;
+  margin:0 0 10px;
+  word-break:break-word;
+}
+
+/* Make tables behave on small screens without clipping */
+.table-container{
+  overflow-x:auto;
+}
+
+/* Force consistent typography in embedded supplementary pages */
+.tab-content h1,
+.tab-content h2,
+.tab-content h3 {
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+/* Prevent embedded <style> blocks from shrinking the page */
+html, body {
+    max-width: none !important;
+}
+
+.tab-content {
+    color: #1a1a1a;
+}
+
+/* Tab visibility: only the active tab is displayed */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.tab-content a { color: #1a73e8; }
+
+
+
+/* Iframe-based supplementary pages (e.g., SD6) */
+.iframe-tab{padding:0 !important; margin:0 !important;}
+.supp-iframe{
+  width:100%;
+  height:calc(100vh - var(--top-offset, 220px));
+  border:0;
+  display:block;
+}
+/* Make the whole layout use full width */
+body{margin:0;}
+main{max-width:none !important;}
+
+/* Override any width constraints coming from the external style.css */
+main.content, .content{
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+#content-area{
+  width: 100% !important;
+  max-width: none !important;
+}
+.tab-content{ width: 100% !important; max-width: none !important; }
+
+/* === Layout fixes: keep footer at bottom and allow full-height tabs === */
+html, body { height: 100%; }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main { flex: 1 0 auto; display: flex; flex-direction: column; }
+
+/* Tab panels fill available space; when active they behave as flex containers */
+.tab-content { flex: 1 1 auto; min-height: 0; }
+.tab-content.active { display: flex !important; flex-direction: column; }
+
+/* Iframes: fill tab area and keep internal scrolling */
+.supp-iframe {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto !important;
+  overflow: auto;
+}
+
+/* Footer stays below the tab area */
+footer { flex: 0 0 auto; margin-top: auto; }
+
+</style>
+<style>
+/* --- Global overrides to prevent embedded tab styles from shrinking the whole page --- */
+html, body { width: 100%; height: 100%; }
+body { margin: 0 !important; max-width: none !important; overflow-x: hidden; }
+
+/* Make sure the main wrapper from style.css never constrains width */
+main.content, .content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+#content-area { width: 100% !important; max-width: none !important; }
+
+.tab-content.active { width: 100% !important; }
+.tab-content { max-width: none !important; width: 100% !important; }
+.tabcontent { max-width: none !important; width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
+.main-nav { width: 100% !important; box-sizing: border-box; }
+.main-nav a { box-sizing: border-box; }
+.hero { width: 100% !important; }
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="hero-overlay">
+<h1>Large extrachromosomal replicons are widespread across bacterial lineages and show coordinated replication termination and spatial coupling with the chromosome</h1>
+<p class="authors">Jakub Czarnecki, Morgan Lambérioux, Ole Skovgaard, Amaury Bignaud, Najwa Taib, Théophile Niault, Jasmin Ostermayer, Pascale Bourhy, Julia Bos, Elvira Krakowska, Dariusz Bartosik, Romain Koszul, Martial Marbouty, Didier Mazel, Marie-Eve Val</p>
+</div>
+</section>
+<nav class="main-nav">
+<a href="#" onclick="showTab('main'); return false;">Home</a>
+<a href="#" onclick="showTab('data2'); return false;">Supplementary Data 2</a>
+<a href="#" onclick="showTab('data3'); return false;">Supplementary Data 3</a>
+<a href="#" onclick="showTab('data4'); return false;">Supplementary Data 4</a>
+<a href="#" onclick="showTab('data5'); return false;">Supplementary Data 5</a>
+<a href="#" onclick="showTab('data6'); return false;">Supplementary Data 6</a>
+<a href="#" onclick="showTab('data7'); return false;">Supplementary Data 7</a>
+<a href="#" onclick="showTab('data8'); return false;">Supplementary Data 8</a>
+<a href="#" onclick="showTab('data9'); return false;">Supplementary Data 9</a>
+<a href="#" onclick="showTab('data10'); return false;">Supplementary Data 10</a>
+<a href="#" onclick="showTab('data11'); return false;">Supplementary Data 11</a>
+<a href="#" onclick="showTab('data12'); return false;">Supplementary Data 12</a>
+<a href="#" onclick="showTab('data13'); return false;">Supplementary Data 13</a>
+<a href="#" onclick="showTab('data14'); return false;">Supplementary Data 14</a>
+<a href="#" onclick="showTab('data15'); return false;">Supplementary Data 15</a>
+<a href="#" onclick="showTab('data16'); return false;">Supplementary Data 16</a>
+<a href="#" onclick="showTab('dataTree'); return false;">ER Distribution</a>
+</nav>
+<main class="content" id="content-area">
+<!-- Onglet principal -->
+<div class="tab-content active" id="main">
+<p>
+                These interactive visualisations allow you to explore additional data from the article, in particular the distribution and properties of bacterial extrachromosomal replicons (ERs). Each tab provides a different interactive analysis.
+            </p>
+<p>
+                Contact the authors for more information:<br/>
+                • Jakub Czarnecki: <a href="mailto:jczrncki@gmail.com">jczrncki@gmail.com</a><br/>
+                • Martial Marbouty: <a href="mailto:martial.marbouty@pasteur.fr">martial.marbouty@pasteur.fr</a><br/>
+                • Didier Mazel: <a href="mailto:mazel@pasteur.fr">mazel@pasteur.fr</a><br/>
+                • Marie-Eve Val: <a href="mailto:marie-eve.kennedy-val@pasteur.fr">marie-eve.kennedy-val@pasteur.fr</a>
+</p>
+</div>
+<div class="tab-content iframe-tab" id="data2"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_2.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data3"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_3.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data4"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_4.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data5"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_5.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data6"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_6.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data7"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_7.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data8"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_8.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data9"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_9.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data10"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_10.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data11"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_11.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data12"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_12.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data13"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_13.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data14"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_14.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data15"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_15.html"></iframe></div>
+<div class="tab-content iframe-tab" id="data16"><iframe class="supp-iframe" loading="lazy" scrolling="yes" src="supplementary_data/Supplementary_Data_16.html"></iframe></div>
+<div class="tab-content" id="dataTree" style="display:none;">
+<style>
+  /* Scoped styling for the ER Distribution tab only (avoid global body overrides) */
+  #dataTree { padding: 40px 20px; }
+  #dataTree .inner { max-width: 1100px; margin: 0 auto; }
+</style>
+<div class="inner">
+<h1>ER distribution on a reference tree of bacteria</h1>
+<p>
+In complementary to Figure 3, ER distributions are displayed on semi-circular and circular trees at the family and genus levels.
+</p>
+<p>
+<b>Percentage of genomes with ERs</b>: for each genome, we identified the largest ER and assigned it to a chromosome-normalized size category using 5%chr bins (e.g. 0–5%, 5–10%, …). Each genome therefore contributes to exactly one bin, defined solely by the size of its largest ER. For each genus, we then calculated the percentage of genomes occupying each size bin.
+</p>
+<h2>Interactive visualizations</h2>
+<ul>
+<li><a href="viewer.html?file=./supplementary_data_tree/semi-radial.svg" target="_blank" rel="noopener noreferrer">% genomes with ERs per family (semi-circular representation)</a></li>
+<li><a href="viewer.html?file=./supplementary_data_tree/radial.svg" target="_blank" rel="noopener noreferrer">% genomes with ERs per family (circular representation)</a></li>
+<li><a href="viewer.html?file=./supplementary_data_tree/semi-radial_genus.svg" target="_blank" rel="noopener noreferrer">% genomes with ERs per genus (semi-circular representation)</a></li>
+<li><a href="viewer.html?file=./supplementary_data_tree/radial_genus.svg" target="_blank" rel="noopener noreferrer">% genomes with ERs per genus (circular representation)</a></li>
+</ul>
+<p>
+Together, these visualizations allow direct assessment of how absolute versus chromosome-normalized
+metrics shape the apparent structure of ER diversity in feature space.
+</p>
+</div>
+</div>
+</main>
+<footer>
+        © 2026 Institut Pasteur — All rights reserved.
+
+This repository contains supplementary material associated with a scientific publication.
+All content will be licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0) upon publication.
+
+    </footer>
+<script>
+    
+
+function tweakIframe(iframe) {
+  // Best-effort: only works for same-origin iframes (GitHub Pages is same-origin).
+  try {
+    const doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+    if (!doc || !doc.head) return;
+    if (doc.getElementById('parent-responsive-injection')) {
+      // Still nudge Plotly to reflow after resize/tab switch
+      if (iframe.contentWindow) iframe.contentWindow.dispatchEvent(new Event('resize'));
+      return;
+    }
+
+    const style = doc.createElement('style');
+    style.id = 'parent-responsive-injection';
+    style.textContent = `
+      html, body {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+        overflow-x: hidden !important;
+      }
+      /* Common wrappers used by exported HTML reports */
+      .container, .wrapper, .content, .main, main, section, article, header, footer, #root {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+      }
+      iframe { width: 100% !important; }
+      img, svg { max-width: 100% !important; height: auto !important; }
+      /* Plotly exports */
+      .js-plotly-plot, .plotly, .main-svg {
+        width: 100% !important;
+        max-width: none !important;
+      }
+    `;
+    doc.head.appendChild(style);
+
+    if (iframe.contentWindow) {
+      // Trigger reflow in responsive embeds (Plotly listens to resize events).
+      iframe.contentWindow.dispatchEvent(new Event('resize'));
+    }
+  } catch (e) {
+    // Ignore cross-origin or other access issues.
+  }
+}
+
+function updateTopOffset() {
+  const hero = document.querySelector('.hero');
+  const nav = document.querySelector('.main-nav');
+  const heroH = hero ? hero.getBoundingClientRect().height : 0;
+  const navH = nav ? nav.getBoundingClientRect().height : 0;
+  // Extra padding for comfortable spacing
+  const offset = Math.ceil(heroH + navH + 20);
+  document.documentElement.style.setProperty('--top-offset', `${offset}px`);
+}
+
+function applyExternalLinkTargets(scope=document) {
+    // Force supplementary data links to open in a new tab (but keep the nav + in-page anchors working)
+    const links = scope.querySelectorAll("a[href]");
+    links.forEach(a => {
+        const href = a.getAttribute("href") || "";
+        if (!href || href.startsWith("#")) return;              // keep in-page anchors
+        if (a.closest(".main-nav")) return;                     // keep tab navigation
+        if (a.hasAttribute("data-same-tab")) return;            // escape hatch if needed
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener noreferrer");
+    });
+}
+
+function showTab(id, doScroll = true) {
+  const tabs = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => {
+    tab.style.display = 'none';
+    tab.classList.remove('active');
+  });
+
+  const shown = document.getElementById(id);
+  if (!shown) return;
+
+  shown.style.display = 'flex';
+  shown.classList.add('active');
+
+  // Make all links inside the visible tab open in a new tab
+  applyExternalLinkTargets(shown);
+
+  // Ensure iframes inside the visible tab fill the available space
+  shown.querySelectorAll('iframe').forEach(iframe => {
+    iframe.style.width = '100%';
+    iframe.style.height = iframe.style.height || '100%';
+    // Apply responsive overrides after the iframe loads (same-origin only).
+    iframe.addEventListener('load', () => tweakIframe(iframe), { once: true });
+    // Also try immediately (in case it's already loaded).
+    tweakIframe(iframe);
+  });
+
+  // Initialize DataTables only if jQuery/DataTables are available
+  if (id === 'dataset' && window.jQuery && window.jQuery.fn && window.jQuery.fn.dataTable) {
+    const $ = window.jQuery;
+    if (!$.fn.dataTable.isDataTable('#phyla')) {
+      $('#phyla').DataTable({ pageLength: 25, autoWidth: false });
+    }
+  }
+
+  if (doScroll) {
+    // Scroll the page so the navigation stays visible after switching tabs
+    setTimeout(() => {
+      const nav = document.querySelector('nav');
+      if (!nav) return;
+      const top = nav.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: Math.max(0, top - 10), behavior: 'smooth' });
+    }, 50);
+  }
+}
+window.addEventListener('resize', () => {
+  updateTopOffset();
+  const scope = document.querySelector('.tab-content.active') || document;
+  scope.querySelectorAll('iframe.supp-iframe').forEach(tweakIframe);
+});
+</script>
+<script>
+  // Ensure supplementary-data links always open in a new tab (and keep tab buttons in-page).
+document.addEventListener('DOMContentLoaded', () => {
+  updateTopOffset();
+  // Ensure we start on Home and hide other tabs
+  showTab('main', false);
+
+  // Make links inside the page open in a new tab
+  applyExternalLinkTargets(document);
+
+  // Also cover SVG links (xlink:href) if present
+  document.querySelectorAll('.tab-content svg a').forEach((a) => {
+    const href = a.getAttribute('href') || a.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || '';
+    if (!href || href.startsWith('#')) return;
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  });
+
+  // Tweak all iframes now and again on load (helps nested/sub-index pages)
+  document.querySelectorAll('iframe.supp-iframe').forEach((iframe) => {
+    iframe.addEventListener('load', () => tweakIframe(iframe));
+    tweakIframe(iframe);
+  });
+});
+</script>
+</body>
+</html>
