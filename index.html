@@ -225,33 +225,45 @@ body { margin: 0 !important; max-width: none !important; overflow-x: hidden; }
 <div class="tab-content iframe-tab" id="data16"><iframe class="supp-iframe" loading="lazy" src="supplementary_data/supplementary_data_16.html"></iframe></div>
 
 
-<div class="tab-content" id="dataTree" style="display:none;">
+
+<div id="dataTree" class="tab-content" style="display:none;">
+            
+
 <style>
 body {
     font-family: Arial, sans-serif;
-    margin: 40px;
-    max-width: 1000px;
+  	html, body { margin: 0; width: 100%; height: 100%; }
+  	svg { display: block; width: 100vw; height: 100vh; }
 }
 </style>
+
 <h1>ER distribution on a reference tree of bacteria</h1>
+
 <p>
 In complementary to Figure 3, ER distributions are displayed on semi-circular and circular trees at the family and genus levels.
 </p>
+
 <p>
 <b>Percentage of genomes with ERs</b>: for each genome, we identified the largest ER and assigned it to a chromosome-normalized size category using 5%chr bins (e.g. 0–5%, 5–10%, …). Each genome therefore contributes to exactly one bin, defined solely by the size of its largest ER. For each genus, we then calculated the percentage of genomes occupying each size bin.
 </p>
+
+
 <h2>Interactive visualizations</h2>
+
 <ul>
-<li><a href="viewer.html?file=supplementary_data_tree/semi-radial.svg" rel="noopener" target="_blank">% genomes with ERs per family (semi-circular representation)</a></li>
-<li><a href="viewer.html?file=supplementary_data_tree/radial.svg" rel="noopener" target="_blank">% genomes with ERs per family (circular representation)</a></li>
-<li><a href="viewer.html?file=supplementary_data_tree/semi-radial_genus.svg" rel="noopener" target="_blank">% genomes with ERs per genus (semi-circular representation)</a></li>
-<li><a href="viewer.html?file=supplementary_data_tree/radial_genus.svg" rel="noopener" target="_blank">% genomes with ERs per genus (circular representation)</a></li>
+<li><a href="supplementary_data_tree/semi-radial.svg">% genomes with ERs per family (semi-circular representation)</a></li>
+<li><a href="supplementary_data_tree/radial.svg">% genomes with ERs per family (circular representation)</a></li>
+<li><a href="supplementary_data_tree/semi-radial_genus.svg">% genomes with ERs per genus (semi-circular representation)</a></li>
+<li><a href="supplementary_data_tree/radial_genus.svg">% genomes with ERs per genus (circular representation)</a></li>
 </ul>
+
 <p>
 Together, these visualizations allow direct assessment of how absolute versus chromosome-normalized
 metrics shape the apparent structure of ER diversity in feature space.
 </p>
-</div>
+
+
+        </div>
 </main>
 <footer>
         © 2026 Institut Pasteur — All rights reserved.
