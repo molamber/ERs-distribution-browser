@@ -20,28 +20,25 @@
 <style>
 /* === Global layout overrides for responsive header/nav + full-bleed hero === */
 
-body{
-  font-family: 'Inter', Arial, sans-serif;
-  margin:0;
-  padding:0;
-  background:#f5f5f5;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f6f7f9;
+    color: #1a1a1a;
 }
 
 /* HERO */
-.hero{
-  width:100%;
-  box-sizing:border-box;
-  height:auto;
-  min-height:260px;
-  padding:56px 16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background-position: center;
-  background-repeat:no-repeat;
-  background-size:cover;
+.hero {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #111827 60%, #0b1220 100%);
 }
+
 
 .hero-overlay{
   box-sizing:border-box;
@@ -101,10 +98,41 @@ body{
   background:#fff;
 }
 
+/* Normalize in-page titles: keep them readable but not huge */
+.tabcontent h1,
+.tabcontent h2,
+.tabcontent h3{
+  font-size:22px;
+  line-height:1.25;
+  font-weight:600;
+  margin:0 0 10px;
+  word-break:break-word;
+}
+
 /* Make tables behave on small screens without clipping */
 .table-container{
   overflow-x:auto;
 }
+
+/* Force consistent typography in embedded supplementary pages */
+.tab-content h1,
+.tab-content h2,
+.tab-content h3 {
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+/* Prevent embedded <style> blocks from shrinking the page */
+html, body {
+    max-width: none !important;
+}
+
+.tab-content {
+    color: #1a1a1a;
+}
+.tab-content a { color: #1a73e8; }
+
 </style>
 
 
