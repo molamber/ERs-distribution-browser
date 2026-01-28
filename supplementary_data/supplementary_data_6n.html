@@ -1,0 +1,129 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Supplementary Data 6</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    max-width: 950px;
+}
+h1 { margin-bottom: 10px; }
+h2 { margin-top: 30px; }
+</style>
+</head>
+<body>
+
+<h1>Statistical analysis of ΔGC–size relationships across bacterial taxa</h1>
+
+<p>
+We quantified how GC-content divergence (ΔGC) changes with ER size across all bacterial taxa (phylum, class, order, family, genus) that contained at least
+<b>100 ERs</b> in the dataset.
+</p>
+
+<h2>Splitting ΔGC into two subsets</h2>
+
+<p>
+Because ΔGC crosses zero, applying a single regression model across all values would obscure
+opposite directional trends on either side of this boundary.
+To avoid this and to detect asymmetric patterns, the analysis was performed
+<b>separately for ERs with ΔGC &lt; 0 and for ERs with ΔGC &gt; 0</b>.
+A minimum of <b>5 ERs</b> per side was required to fit a regression model.
+</p>
+
+<h2>Regression model</h2>
+
+<p>
+For each taxon and each ΔGC side, we fitted an <b>ordinary least squares (OLS)</b> linear regression
+of the form:
+</p>
+
+<p style="margin-left:40px;">
+ΔGC ∼ log<sub>10</sub>(% chromosome size)
+</p>
+
+<p>
+The dependent variable is <b>log<sub>10</sub>(% chromosome)</b> and the predictor is <b>ΔGC</b>.
+For each model, we extracted the regression slope and the p-value associated with the ΔGC term.
+A trend was considered statistically significant when <b>p &lt; 0.05</b>.
+</p>
+
+<h2>Interpretation of slope direction</h2>
+
+<p>
+Interpretations were generated independently for the ΔGC &lt; 0 and ΔGC &gt; 0 subsets:
+</p>
+
+<ul>
+<li>
+<b>Convergence toward chromosomal GC content</b>
+<ul>
+<li>ΔGC &lt; 0 → significant <b>positive</b> slope</li>
+<li>ΔGC &gt; 0 → significant <b>negative</b> slope</li>
+</ul>
+</li>
+
+<li>
+<b>Divergence away from chromosomal GC content</b>
+<ul>
+<li>ΔGC &lt; 0 → significant <b>negative</b> slope</li>
+<li>ΔGC &gt; 0 → significant <b>positive</b> slope</li>
+</ul>
+</li>
+
+<li><b>No significant trend</b>: p ≥ 0.05</li>
+<li><b>Insufficient data</b>: fewer than 5 ERs on that side</li>
+</ul>
+
+<h2>Visualisation</h2>
+
+<p>
+For every taxon with at least 100 ERs:
+</p>
+
+<ul>
+<li>all ERs are shown as grey scatter points</li>
+<li>regressions were fitted and drawn separately for ΔGC &lt; 0 and ΔGC &gt; 0</li>
+<li>both regression lines and their 95% confidence intervals are shown</li>
+<li>colors denote significance:
+<ul>
+<li><b>blue</b> — significant trend for ΔGC &lt; 0</li>
+<li><b>red</b> — significant trend for ΔGC &gt; 0</li>
+<li><b>grey</b> — non-significant trend</li>
+</ul>
+</li>
+<li>all taxa share identical axis limits for direct comparability</li>
+</ul>
+
+<p>
+All figures were combined into a single interactive HTML document:
+</p>
+
+<p style="margin-left:40px;">
+<b><a href="GC_size_slopes_by_taxa.html" target='_blank'>GC_size_slopes_by_taxa.html</a></b>
+</p>
+
+<h2>Statistical summary table</h2>
+
+<p>
+For each taxon, the following statistics were recorded:
+</p>
+
+<ul>
+<li>total number of ERs (<code>N_total</code>)</li>
+<li>number of ERs with ΔGC &lt; 0 and ΔGC &gt; 0</li>
+<li>slope and p-value for each regression</li>
+<li>side-specific interpretation of the observed trend</li>
+</ul>
+
+<p>
+These results are provided as an interactive sortable table:
+</p>
+
+<p style="margin-left:40px;">
+<b><a href="GC_size_slope_statistics.html" target='_blank'>GC_size_slope_statistics.html</a></b>
+</p>
+
+</body>
+</html>

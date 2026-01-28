@@ -2,128 +2,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Supplementary Data 6</title>
+<title>Supplementary Data 8</title>
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    max-width: 950px;
-}
-h1 { margin-bottom: 10px; }
-h2 { margin-top: 30px; }
+body {font-family: Arial, sans-serif; margin: 40px; max-width: 1000px;}
+ul {font-size: 16px;}
+li {margin-bottom: 8px;}
+a {text-decoration: none; color: #4285F4;}
+a:hover {text-decoration: underline;}
+h1, h2, h3 {margin-bottom: 12px;}
+details {margin-bottom: 24px;}
 </style>
 </head>
 <body>
 
-<h1>Statistical analysis of ΔGC–size relationships across bacterial taxa</h1>
+<h1>Interactive version of Figure 2:</h1>
+<h2>Class-level ER distributions with genus stratification</h2>
 
 <p>
-We quantified how GC-content divergence (ΔGC) changes with ER size across all bacterial taxa (phylum, class, order, family, genus) that contained at least
-<b>100 ERs</b> in the dataset.
-</p>
-
-<h2>Splitting ΔGC into two subsets</h2>
-
-<p>
-Because ΔGC crosses zero, applying a single regression model across all values would obscure
-opposite directional trends on either side of this boundary.
-To avoid this and to detect asymmetric patterns, the analysis was performed
-<b>separately for ERs with ΔGC &lt; 0 and for ERs with ΔGC &gt; 0</b>.
-A minimum of <b>5 ERs</b> per side was required to fit a regression model.
-</p>
-
-<h2>Regression model</h2>
-
-<p>
-For each taxon and each ΔGC side, we fitted an <b>ordinary least squares (OLS)</b> linear regression
-of the form:
-</p>
-
-<p style="margin-left:40px;">
-ΔGC ∼ log<sub>10</sub>(% chromosome size)
+Within each eligible class (those with at least 100 ERs in our dataset),
+up to five representative genera are shown in color.
+These genera are selected based on the presence of large ERs.
+For every class, we provide both <b>linear</b> (%chr) and
+<b>log-scaled</b> (log₁₀(%chr)) versions of the ΔGC vs. %chr plots.
 </p>
 
 <p>
-The dependent variable is <b>log<sub>10</sub>(% chromosome)</b> and the predictor is <b>ΔGC</b>.
-For each model, we extracted the regression slope and the p-value associated with the ΔGC term.
-A trend was considered statistically significant when <b>p &lt; 0.05</b>.
+All plots are fully interactive, allowing detailed exploration of genus-level distributions.
+Together, these figures extend the examples shown in the main text and
+offer a deeper view of replicon diversity and evolutionary patterns across bacterial taxa.
 </p>
 
-<h2>Interpretation of slope direction</h2>
-
-<p>
-Interpretations were generated independently for the ΔGC &lt; 0 and ΔGC &gt; 0 subsets:
-</p>
-
+<h3>Classes with ≥100 ERs</h3>
+<details open>
+<summary><b>Click to expand list of classes (linear + log₁₀ plots)</b></summary>
 <ul>
-<li>
-<b>Convergence toward chromosomal GC content</b>
-<ul>
-<li>ΔGC &lt; 0 → significant <b>positive</b> slope</li>
-<li>ΔGC &gt; 0 → significant <b>negative</b> slope</li>
+<li><b>Actinomycetes</b>: <a href='supplementary_data_6_plots/Actinomycetes_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Actinomycetes_log10.html' target='_blank'>Log10</a></li><li><b>Alphaproteobacteria</b>: <a href='supplementary_data_6_plots/Alphaproteobacteria_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Alphaproteobacteria_log10.html' target='_blank'>Log10</a></li><li><b>Bacilli</b>: <a href='supplementary_data_6_plots/Bacilli_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Bacilli_log10.html' target='_blank'>Log10</a></li><li><b>Bacteroidia</b>: <a href='supplementary_data_6_plots/Bacteroidia_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Bacteroidia_log10.html' target='_blank'>Log10</a></li><li><b>Betaproteobacteria</b>: <a href='supplementary_data_6_plots/Betaproteobacteria_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Betaproteobacteria_log10.html' target='_blank'>Log10</a></li><li><b>Clostridia</b>: <a href='supplementary_data_6_plots/Clostridia_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Clostridia_log10.html' target='_blank'>Log10</a></li><li><b>Cyanophyceae</b>: <a href='supplementary_data_6_plots/Cyanophyceae_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Cyanophyceae_log10.html' target='_blank'>Log10</a></li><li><b>Cytophagia</b>: <a href='supplementary_data_6_plots/Cytophagia_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Cytophagia_log10.html' target='_blank'>Log10</a></li><li><b>Deinococci</b>: <a href='supplementary_data_6_plots/Deinococci_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Deinococci_log10.html' target='_blank'>Log10</a></li><li><b>Epsilonproteobacteria</b>: <a href='supplementary_data_6_plots/Epsilonproteobacteria_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Epsilonproteobacteria_log10.html' target='_blank'>Log10</a></li><li><b>Gammaproteobacteria</b>: <a href='supplementary_data_6_plots/Gammaproteobacteria_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Gammaproteobacteria_log10.html' target='_blank'>Log10</a></li><li><b>Spirochaetia</b>: <a href='supplementary_data_6_plots/Spirochaetia_linear.html' target='_blank'>Linear</a> | <a href='supplementary_data_6_plots/Spirochaetia_log10.html' target='_blank'>Log10</a></li>
 </ul>
-</li>
-
-<li>
-<b>Divergence away from chromosomal GC content</b>
-<ul>
-<li>ΔGC &lt; 0 → significant <b>negative</b> slope</li>
-<li>ΔGC &gt; 0 → significant <b>positive</b> slope</li>
-</ul>
-</li>
-
-<li><b>No significant trend</b>: p ≥ 0.05</li>
-<li><b>Insufficient data</b>: fewer than 5 ERs on that side</li>
-</ul>
-
-<h2>Visualisation</h2>
-
-<p>
-For every taxon with at least 100 ERs:
-</p>
-
-<ul>
-<li>all ERs are shown as grey scatter points</li>
-<li>regressions were fitted and drawn separately for ΔGC &lt; 0 and ΔGC &gt; 0</li>
-<li>both regression lines and their 95% confidence intervals are shown</li>
-<li>colors denote significance:
-<ul>
-<li><b>blue</b> — significant trend for ΔGC &lt; 0</li>
-<li><b>red</b> — significant trend for ΔGC &gt; 0</li>
-<li><b>grey</b> — non-significant trend</li>
-</ul>
-</li>
-<li>all taxa share identical axis limits for direct comparability</li>
-</ul>
-
-<p>
-All figures were combined into a single interactive HTML document:
-</p>
-
-<p style="margin-left:40px;">
-<b><a href="GC_size_slopes_by_taxa.html" target='_blank'>GC_size_slopes_by_taxa.html</a></b>
-</p>
-
-<h2>Statistical summary table</h2>
-
-<p>
-For each taxon, the following statistics were recorded:
-</p>
-
-<ul>
-<li>total number of ERs (<code>N_total</code>)</li>
-<li>number of ERs with ΔGC &lt; 0 and ΔGC &gt; 0</li>
-<li>slope and p-value for each regression</li>
-<li>side-specific interpretation of the observed trend</li>
-</ul>
-
-<p>
-These results are provided as an interactive sortable table:
-</p>
-
-<p style="margin-left:40px;">
-<b><a href="GC_size_slope_statistics.html" target='_blank'>GC_size_slope_statistics.html</a></b>
-</p>
+</details>
 
 </body>
 </html>
