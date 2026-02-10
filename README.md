@@ -1,9 +1,12 @@
 # ERs-distribution-browser
-Supplementary data - Replication coordination marks the domestication of large extrachromosomal replicons in bacteria
+
+Supplementary data - Large extrachromosomal replicons are widespread across bacterial lineages and show coordinated replication termination and spatial coupling with the chromosome
+
 
 
 # Supplementary Data
 
-🔗 [Accéder aux supplementary materials ](https://molamber.github.io/ERs-distribution-browser/)
+🔗 [Supplementary data](https://molamber.github.io/ERs-distribution-browser/)
 
-Ce dataset interactif permet d'explorer la distribution des chromosomes et des éléments extracromosomiques (ERs) chez les bactéries, avec des graphiques dynamiques.
+This interactive dataset enables exploration of the distribution of chromosomes and extrachromosomal replicons in bacteria, using dynamic visualizations.
+
