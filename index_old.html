@@ -131,6 +131,11 @@ html, body {
 
 
 
+
+
+/* Default: show Home only (others are toggled by JS / URL hash) */
+.tab-content{ display:none; }
+#main{ display:block; }
 /* Iframe-based supplementary pages (e.g., SD6) */
 .iframe-tab{padding:0 !important; margin:0 !important;}
 .supp-iframe{
@@ -188,9 +193,9 @@ body { margin: 0 !important; max-width: none !important; overflow-x: hidden; }
             </p>
 <p>
                 Contact the authors for more information:<br/>
-                • Jakub Czarnecki: <a href="mailto:jczrncki@gmail.com">jczrncki@gmail.com</a><br/>
+                • Jakub Czarnecki: <a href="mailto:jakub.czarnecki@thl.fi">jakub.czarnecki@thl.fi</a><br/>
                 • Martial Marbouty: <a href="mailto:martial.marbouty@pasteur.fr">martial.marbouty@pasteur.fr</a><br/>
-                • Didier Mazel: <a href="mailto:mazel@pasteur.fr">mazel@pasteur.fr</a><br/>
+                • Didier Mazel: <a href="mailto:didier.mazel@pasteur.fr">didier.mazel@pasteur.fr</a><br/>
                 • Marie-Eve Val: <a href="mailto:marie-eve.kennedy-val@pasteur.fr">marie-eve.kennedy-val@pasteur.fr</a>
 </p>
 </div>
@@ -274,10 +279,9 @@ metrics shape the apparent structure of ER diversity in feature space.
 
 
 <footer>
-        © 2026 Institut Pasteur — All rights reserved.
-
+        
 This repository contains supplementary material associated with a scientific publication.
-All content will be licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0) upon publication.
+All content will be licensed under the CC BY 4.0 License upon publication.
 
     </footer>
 <script>
@@ -296,42 +300,70 @@ function applyExternalLinkTargets(scope=document) {
     });
 }
 
-function showTab(id) {
+function showTab(id, updateHash=true) {
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => tab.style.display = 'none');
-    const shown = document.getElementById(id);
+
+    const shown = document.getElementById(id) || document.getElementById('main');
     shown.style.display = 'block';
+
     applyExternalLinkTargets(shown);
     shown.querySelectorAll('iframe.supp-iframe').forEach(tweakIframe);
+
+    // Update URL (so each tab has its own link) without reloading the page
+if (updateHash) {
+    if (shown.id === 'main') {
+        // Keep the default URL clean (index.html) for Home
+        const clean = window.location.pathname + window.location.search;
+        if (window.location.hash) history.pushState(null, '', clean);
+    } else {
+        const desired = '#' + shown.id;
+        if (window.location.hash !== desired) {
+            history.pushState(null, '', desired);
+        }
+    }
+}
 
     // Active styling
     const links = document.querySelectorAll('.main-nav a');
     links.forEach(link => link.classList.remove('active'));
-    const clickedLink = Array.from(links).find(link => link.getAttribute('onclick')?.includes(id));
+    const clickedLink = Array.from(links).find(link => link.getAttribute('onclick')?.includes(shown.id));
     if (clickedLink) clickedLink.classList.add('active');
 
-    // Attendre un tout petit peu que le contenu soit visible avant de scroller
+    // Scroll to nav (keeps the UX consistent when switching tabs)
     setTimeout(() => {
         const nav = document.querySelector('.main-nav');
+        if (!nav) return;
         const navTop = nav.getBoundingClientRect().top + window.pageYOffset;
 
         window.scrollTo({
             top: navTop,
             behavior: 'smooth'
         });
-    }, 50); // attendre 50ms pour que le DOM ait bien affiché le contenu
+    }, 50);
 
-if (id === 'dataset' && !$.fn.dataTable.isDataTable('#phyla')) {
+    if (shown.id === 'dataset' && window.$ && $.fn.dataTable && !$.fn.dataTable.isDataTable('#phyla')) {
         $('table.display').DataTable();
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
     applyExternalLinkTargets(document);
+
+    // Open the right tab based on the URL (e.g. index.html#data10). Default: Home.
+    const initial = (window.location.hash || '').replace('#', '').trim();
+    if (initial) {
+        showTab(initial, false);
+    } else {
+        showTab('main', false);
+    }
 });
 
-
+// Back/forward buttons should switch tabs
+window.addEventListener('popstate', () => {
+    const current = (window.location.hash || '').replace('#', '').trim();
+    showTab(current || 'main', false);
+});
 function tweakIframe(iframe){
   try{
     const doc = iframe.contentDocument || iframe.contentWindow.document;
